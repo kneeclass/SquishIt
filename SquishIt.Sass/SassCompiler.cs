@@ -22,7 +22,7 @@ namespace SquishIt.Sass
         public string CompileSass(string input, SassMode mode, string location, int precision = 5)
         {
             var processedInput = mode == SassMode.Scss ? input : ConvertToScss(input);
-            return _compiler.Compile(processedInput, OutputStyle.Nested, SourceCommentsMode.None, precision, new[] { location });
+            return _compiler.Compile(processedInput, OutputStyle.Nested, false, precision, new[] { location });
         }
 
         internal string ConvertToScss(string input)
